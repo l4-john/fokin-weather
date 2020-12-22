@@ -17,6 +17,10 @@ const API_KEY = "d53a53a1085f8a0d1795e949cabbaff7";
    };
 
    getWeather = async (latitude, longitude) => {
+    // const { data } = await axios.get(
+    //   `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`
+    // );
+    // console.log({data})
     const { 
       data: {
         main: {temp},
@@ -24,7 +28,6 @@ const API_KEY = "d53a53a1085f8a0d1795e949cabbaff7";
       } } = await axios.get(
       `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`
     );
-    // console.log({data})
     this.setState({ 
       isLoading: false, 
       condition: weather[0].main, 
