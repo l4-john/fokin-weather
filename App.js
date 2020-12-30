@@ -28,6 +28,7 @@ const API_KEY = "d53a53a1085f8a0d1795e949cabbaff7";
       } } = await axios.get(
       `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`
     );
+    
     this.setState({ 
       isLoading: false, 
       condition: weather[0].main, 
@@ -42,7 +43,6 @@ const API_KEY = "d53a53a1085f8a0d1795e949cabbaff7";
         coords: {latitude, longitude} 
       } = await Location.getCurrentPositionAsync();
       this.getWeather(latitude, longitude);
-      this.setState({ isLoading : false });
      } catch (error){
        Alert.alert("Can't find you.", "So sad");
        console.log(error);
