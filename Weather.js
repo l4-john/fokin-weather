@@ -7,11 +7,9 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { WeatherOptions } from './WeatherOptions';
 
 export default function Weather({temp, condition}){
-    console.log("condition ======> {}", condition);
     return (
         <LinearGradient
             // Background Linear Gradient
-            // colors={WeatherOptions.[condition].gradient}
             colors={WeatherOptions[condition].gradient}
             style={styles.container} 
         >
@@ -29,7 +27,7 @@ export default function Weather({temp, condition}){
 }
 
 Weather.propTypes = {
-    temp: PropTypes.func.isRequeired,
+    temp: PropTypes.number.isRequeired,
     condition: PropTypes.oneOf([
         "Thunderstorm", 
         "Drizzle", 
